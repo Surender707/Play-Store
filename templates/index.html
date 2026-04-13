@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStore Pulse | Google Play Store Analytics & AI Predictor</title>
+    <meta name="description" content="AI-powered Google Play Store analytics dashboard with rating prediction, category insights, and trend analysis for app developers.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <!-- Cosmic Nebula Background -->
+    <div class="cosmic-bg">
+        <div class="nebula-layer"></div>
+        <div class="nebula-layer-2"></div>
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-stars" id="shooting-stars"></div>
+
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs" id="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="orb orb-5"></div>
+    </div>
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    <div class="grid-overlay"></div>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader-content">
+            <div class="pulse-loader">
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring"></div>
+                <i class="fab fa-google-play pulse-icon"></i>
+            </div>
+            <h2 class="loader-title">PlayStore Pulse</h2>
+            <p class="loader-subtitle">Loading analytics engine...</p>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-google-play"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>PlayStore</h1>
+                    <span>Pulse</span>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="javascript:void(0)" class="nav-item active" data-section="dashboard" id="nav-dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" data-section="categories" id="nav-categories">
+                <i class="fas fa-layer-group"></i>
+                <span>Categories</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" data-section="predictor" id="nav-predictor">
+                <i class="fas fa-robot"></i>
+                <span>AI Predictor</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" data-section="insights" id="nav-insights">
+                <i class="fas fa-lightbulb"></i>
+                <span>Insights</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" data-section="model" id="nav-model">
+                <i class="fas fa-brain"></i>
+                <span>Model Info</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-badge">
+                <i class="fas fa-code"></i>
+                <span>B.Tech Project 2026</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button id="sidebar-toggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="topbar-title">
+                <h2 id="page-title">Dashboard</h2>
+                <p id="page-subtitle">Google Play Store Analytics Overview</p>
+            </div>
+            <div class="topbar-actions">
+                <div class="search-box" id="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search analytics..." id="search-input">
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="section-dashboard" class="section active">
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card kpi-apps" id="kpi-total-apps">
+                    <div class="kpi-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Apps</span>
+                        <h3 class="kpi-value" id="total-apps">--</h3>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> Analyzed</span>
+                    </div>
+                    <div class="kpi-chart-mini">
+                        <canvas id="mini-chart-apps"></canvas>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-rating" id="kpi-avg-rating">
+                    <div class="kpi-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Avg Rating</span>
+                        <h3 class="kpi-value" id="avg-rating">--</h3>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> out of 5.0</span>
+                    </div>
+                    <div class="kpi-chart-mini">
+                        <canvas id="mini-chart-rating"></canvas>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-reviews" id="kpi-total-reviews">
+                    <div class="kpi-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Reviews</span>
+                        <h3 class="kpi-value" id="total-reviews">--</h3>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> Across all apps</span>
+                    </div>
+                    <div class="kpi-chart-mini">
+                        <canvas id="mini-chart-reviews"></canvas>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-installs" id="kpi-total-installs">
+                    <div class="kpi-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Installs</span>
+                        <h3 class="kpi-value" id="total-installs">--</h3>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> Downloads</span>
+                    </div>
+                    <div class="kpi-chart-mini">
+                        <canvas id="mini-chart-installs"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row 1 -->
+            <div class="chart-grid-2">
+                <div class="chart-card" id="chart-card-category">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> Apps by Category</h3>
+                        <div class="chart-actions">
+                            <button class="chart-btn active" data-chart-type="bar" id="cat-bar-btn">Bar</button>
+                            <button class="chart-btn" data-chart-type="horizontal" id="cat-horiz-btn">Horizontal</button>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chart-category"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card" id="chart-card-type">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-pie"></i> Free vs Paid</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chart-type-dist"></canvas>
+                    </div>
+                    <div class="chart-footer" id="paid-percentage-footer">
+                        <span class="chart-stat"><i class="fas fa-tag"></i> <span id="paid-pct">--</span>% apps are paid</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="chart-grid-2">
+                <div class="chart-card" id="chart-card-rating-dist">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-star-half-alt"></i> Rating Distribution</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chart-rating-dist"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card" id="chart-card-content">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-shield-alt"></i> Content Rating Distribution</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chart-content-rating"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Apps Table -->
+            <div class="table-card" id="table-card-top-apps">
+                <div class="chart-header">
+                    <h3><i class="fas fa-trophy"></i> Top Apps by Reviews</h3>
+                    <div class="chart-actions">
+                        <button class="chart-btn active" id="top-reviews-btn" data-table="reviews">By Reviews</button>
+                        <button class="chart-btn" id="top-rated-btn" data-table="rated">By Rating</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="top-apps-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>App Name</th>
+                                <th>Category</th>
+                                <th>Rating</th>
+                                <th>Reviews</th>
+                                <th>Installs</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-apps-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="section-categories" class="section">
+            <div class="chart-grid-2">
+                <div class="chart-card full-width" id="chart-card-cat-rating">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-ranking-star"></i> Average Rating by Category</h3>
+                    </div>
+                    <div class="chart-body chart-body-tall">
+                        <canvas id="chart-cat-rating"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card full-width" id="chart-card-size-rating">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-weight-hanging"></i> Size vs Rating</h3>
+                    </div>
+                    <div class="chart-body chart-body-tall">
+                        <canvas id="chart-size-rating"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-grid-1">
+                <div class="chart-card" id="chart-card-install-rating">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-area"></i> Installs vs Rating Correlation</h3>
+                    </div>
+                    <div class="chart-body chart-body-tall">
+                        <canvas id="chart-install-rating"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predictor Section -->
+        <section id="section-predictor" class="section">
+            <div class="predictor-layout">
+                <div class="predictor-form-card" id="predictor-form-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-robot"></i> App Rating Predictor</h3>
+                    </div>
+                    <p class="predictor-description">Enter your app's details below and our AI model will predict its expected rating on the Google Play Store.</p>
+                    <form id="predict-form" class="predictor-form">
+                        <div class="form-group">
+                            <label for="pred-category"><i class="fas fa-layer-group"></i> Category</label>
+                            <select id="pred-category" name="category" required></select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pred-reviews"><i class="fas fa-comments"></i> Expected Reviews</label>
+                                <input type="number" id="pred-reviews" name="reviews" value="500" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pred-installs"><i class="fas fa-download"></i> Expected Installs</label>
+                                <input type="number" id="pred-installs" name="installs" value="10000" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pred-size"><i class="fas fa-hdd"></i> App Size (MB)</label>
+                                <input type="number" id="pred-size" name="size_mb" value="15" min="0.1" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pred-price"><i class="fas fa-dollar-sign"></i> Price (USD)</label>
+                                <input type="number" id="pred-price" name="price" value="0" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pred-content-rating"><i class="fas fa-shield-alt"></i> Content Rating</label>
+                            <select id="pred-content-rating" name="content_rating" required></select>
+                        </div>
+                        <button type="submit" class="predict-btn" id="predict-btn">
+                            <i class="fas fa-magic"></i> Predict Rating
+                        </button>
+                    </form>
+                </div>
+                <div class="predictor-result-card" id="predictor-result-card">
+                    <div class="result-placeholder" id="result-placeholder">
+                        <div class="result-placeholder-icon">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3>Ready to Predict</h3>
+                        <p>Fill in the form and click "Predict Rating" to see AI-powered results</p>
+                    </div>
+                    <div class="result-content" id="result-content" style="display:none;">
+                        <div class="result-rating-display">
+                            <div class="rating-circle" id="rating-circle">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="rating-bg" cx="60" cy="60" r="54"/>
+                                    <circle class="rating-progress" cx="60" cy="60" r="54" id="rating-progress"/>
+                                </svg>
+                                <div class="rating-value" id="predicted-rating-value">--</div>
+                            </div>
+                            <div class="rating-stars" id="rating-stars"></div>
+                            <p class="rating-label">Predicted Rating</p>
+                        </div>
+                        <div class="result-confidence">
+                            <div class="confidence-bar-container">
+                                <span class="confidence-label">Model Confidence</span>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" id="confidence-fill"></div>
+                                </div>
+                                <span class="confidence-value" id="confidence-value">--%</span>
+                            </div>
+                        </div>
+                        <div class="result-factors">
+                            <h4><i class="fas fa-key"></i> Key Factors</h4>
+                            <div id="factors-list" class="factors-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="section-insights" class="section">
+            <div class="insights-grid" id="insights-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Model Info Section -->
+        <section id="section-model" class="section">
+            <div class="model-grid">
+                <div class="model-card" id="model-overview-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-cogs"></i> Model Architecture</h3>
+                    </div>
+                    <div class="model-details">
+                        <div class="model-detail-item">
+                            <span class="detail-label">Algorithm</span>
+                            <span class="detail-value">Gradient Boosting Regressor</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Estimators</span>
+                            <span class="detail-value">200 trees</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Max Depth</span>
+                            <span class="detail-value">5</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Learning Rate</span>
+                            <span class="detail-value">0.1</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Framework</span>
+                            <span class="detail-value">scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="model-card" id="model-performance-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-line"></i> Performance Metrics</h3>
+                    </div>
+                    <div class="metrics-grid" id="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-circle metric-good">
+                                <span id="metric-mae">--</span>
+                            </div>
+                            <span class="metric-label">MAE</span>
+                            <span class="metric-desc">Mean Absolute Error</span>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-circle metric-ok">
+                                <span id="metric-rmse">--</span>
+                            </div>
+                            <span class="metric-label">RMSE</span>
+                            <span class="metric-desc">Root Mean Squared Error</span>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-circle metric-great">
+                                <span id="metric-r2">--</span>
+                            </div>
+                            <span class="metric-label">R&sup2; Score</span>
+                            <span class="metric-desc">Coefficient of Determination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="model-card full-span" id="model-importance-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-sort-amount-down"></i> Feature Importance</h3>
+                    </div>
+                    <div class="chart-body chart-body-tall">
+                        <canvas id="chart-feature-importance"></canvas>
+                    </div>
+                </div>
+                <div class="model-card" id="model-dataset-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-database"></i> Dataset Info</h3>
+                    </div>
+                    <div class="model-details">
+                        <div class="model-detail-item">
+                            <span class="detail-label">Source</span>
+                            <span class="detail-value">Google Play Store</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Training Samples</span>
+                            <span class="detail-value" id="train-size">--</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Test Samples</span>
+                            <span class="detail-value" id="test-size">--</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Features Used</span>
+                            <span class="detail-value">11</span>
+                        </div>
+                        <div class="model-detail-item">
+                            <span class="detail-label">Target Variable</span>
+                            <span class="detail-value">App Rating (1-5)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="model-card" id="model-tech-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-laptop-code"></i> Tech Stack</h3>
+                    </div>
+                    <div class="tech-stack-grid">
+                        <div class="tech-badge"><i class="fab fa-python"></i> Python 3.x</div>
+                        <div class="tech-badge"><i class="fas fa-flask"></i> Flask</div>
+                        <div class="tech-badge"><i class="fas fa-brain"></i> scikit-learn</div>
+                        <div class="tech-badge"><i class="fas fa-table"></i> Pandas</div>
+                        <div class="tech-badge"><i class="fas fa-calculator"></i> NumPy</div>
+                        <div class="tech-badge"><i class="fas fa-chart-bar"></i> Chart.js</div>
+                        <div class="tech-badge"><i class="fab fa-html5"></i> HTML5</div>
+                        <div class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="tech-badge"><i class="fab fa-js"></i> JavaScript</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

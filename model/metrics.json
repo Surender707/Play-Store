@@ -1,0 +1,20 @@
+{
+  "mae": 0.4757,
+  "rmse": 0.6214,
+  "r2": 0.2192,
+  "feature_importance": {
+    "Reviews": 0.2374,
+    "Reviews_Per_Install": 0.232,
+    "Log_Reviews": 0.1965,
+    "Size_MB": 0.1373,
+    "Category_Encoded": 0.0499,
+    "Genres_Encoded": 0.0499,
+    "Content Rating_Encoded": 0.0266,
+    "Log_Installs": 0.0239,
+    "Price_USD": 0.023,
+    "Installs_Clean": 0.0166,
+    "Is_Free": 0.0069
+  },
+  "train_size": 8617,
+  "test_size": 2155
+}

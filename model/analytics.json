@@ -1,0 +1,438 @@
+{
+  "category_stats": [
+    {
+      "Category": "Communication",
+      "Avg_Rating": 3.9243169398907103,
+      "Total_Reviews": 4875585,
+      "Total_Installs": 181850630,
+      "App_Count": 366
+    },
+    {
+      "Category": "Video Players",
+      "Avg_Rating": 3.901136363636364,
+      "Total_Reviews": 17493772,
+      "Total_Installs": 684268310,
+      "App_Count": 352
+    },
+    {
+      "Category": "Social",
+      "Avg_Rating": 3.8997126436781606,
+      "Total_Reviews": 31991619,
+      "Total_Installs": 1050554590,
+      "App_Count": 348
+    },
+    {
+      "Category": "Finance",
+      "Avg_Rating": 3.8905172413793108,
+      "Total_Reviews": 8250486,
+      "Total_Installs": 295257656,
+      "App_Count": 348
+    },
+    {
+      "Category": "Beauty",
+      "Avg_Rating": 3.8304347826086955,
+      "Total_Reviews": 8172685,
+      "Total_Installs": 431944045,
+      "App_Count": 345
+    },
+    {
+      "Category": "Events",
+      "Avg_Rating": 3.8540697674418603,
+      "Total_Reviews": 18662488,
+      "Total_Installs": 546500417,
+      "App_Count": 344
+    },
+    {
+      "Category": "Tools",
+      "Avg_Rating": 3.839244186046512,
+      "Total_Reviews": 23368394,
+      "Total_Installs": 861479364,
+      "App_Count": 344
+    },
+    {
+      "Category": "Libraries & Demo",
+      "Avg_Rating": 3.88134110787172,
+      "Total_Reviews": 32663319,
+      "Total_Installs": 807300879,
+      "App_Count": 343
+    },
+    {
+      "Category": "Photography",
+      "Avg_Rating": 3.9522123893805308,
+      "Total_Reviews": 20244753,
+      "Total_Installs": 1238822976,
+      "App_Count": 339
+    },
+    {
+      "Category": "Art & Design",
+      "Avg_Rating": 3.884179104477612,
+      "Total_Reviews": 33548294,
+      "Total_Installs": 834161862,
+      "App_Count": 335
+    },
+    {
+      "Category": "Game",
+      "Avg_Rating": 3.9284431137724547,
+      "Total_Reviews": 43739679,
+      "Total_Installs": 1195208465,
+      "App_Count": 334
+    },
+    {
+      "Category": "Personalization",
+      "Avg_Rating": 3.87874251497006,
+      "Total_Reviews": 62527036,
+      "Total_Installs": 1478330066,
+      "App_Count": 334
+    },
+    {
+      "Category": "Sports",
+      "Avg_Rating": 3.8507507507507506,
+      "Total_Reviews": 7535745,
+      "Total_Installs": 315617733,
+      "App_Count": 333
+    },
+    {
+      "Category": "Education",
+      "Avg_Rating": 3.967267267267267,
+      "Total_Reviews": 49280019,
+      "Total_Installs": 1303832965,
+      "App_Count": 333
+    },
+    {
+      "Category": "Parenting",
+      "Avg_Rating": 3.918618618618619,
+      "Total_Reviews": 4097166,
+      "Total_Installs": 185647201,
+      "App_Count": 333
+    },
+    {
+      "Category": "Music & Audio",
+      "Avg_Rating": 3.9146341463414633,
+      "Total_Reviews": 21773805,
+      "Total_Installs": 1416074268,
+      "App_Count": 328
+    },
+    {
+      "Category": "Shopping",
+      "Avg_Rating": 3.8777439024390246,
+      "Total_Reviews": 40070910,
+      "Total_Installs": 1681176951,
+      "App_Count": 328
+    },
+    {
+      "Category": "Auto & Vehicles",
+      "Avg_Rating": 3.9307692307692306,
+      "Total_Reviews": 48286550,
+      "Total_Installs": 1775178274,
+      "App_Count": 325
+    },
+    {
+      "Category": "News & Magazines",
+      "Avg_Rating": 3.9055727554179565,
+      "Total_Reviews": 8153393,
+      "Total_Installs": 272283860,
+      "App_Count": 323
+    },
+    {
+      "Category": "Medical",
+      "Avg_Rating": 3.918944099378882,
+      "Total_Reviews": 28444402,
+      "Total_Installs": 1052328302,
+      "App_Count": 322
+    },
+    {
+      "Category": "Travel & Local",
+      "Avg_Rating": 3.8232919254658384,
+      "Total_Reviews": 10194137,
+      "Total_Installs": 335511099,
+      "App_Count": 322
+    },
+    {
+      "Category": "Business",
+      "Avg_Rating": 3.9124610591900315,
+      "Total_Reviews": 43969666,
+      "Total_Installs": 1184054817,
+      "App_Count": 321
+    },
+    {
+      "Category": "Maps & Navigation",
+      "Avg_Rating": 3.8721875,
+      "Total_Reviews": 3785699,
+      "Total_Installs": 135952362,
+      "App_Count": 320
+    },
+    {
+      "Category": "House & Home",
+      "Avg_Rating": 3.8678233438485803,
+      "Total_Reviews": 21386361,
+      "Total_Installs": 654580219,
+      "App_Count": 317
+    },
+    {
+      "Category": "Weather",
+      "Avg_Rating": 3.896214511041009,
+      "Total_Reviews": 11643589,
+      "Total_Installs": 1268266197,
+      "App_Count": 317
+    },
+    {
+      "Category": "Productivity",
+      "Avg_Rating": 3.843670886075949,
+      "Total_Reviews": 5177849,
+      "Total_Installs": 211669675,
+      "App_Count": 316
+    },
+    {
+      "Category": "Comics",
+      "Avg_Rating": 3.9194888178913736,
+      "Total_Reviews": 21205997,
+      "Total_Installs": 1122698513,
+      "App_Count": 313
+    },
+    {
+      "Category": "Health & Fitness",
+      "Avg_Rating": 3.8916666666666666,
+      "Total_Reviews": 5110164,
+      "Total_Installs": 251276665,
+      "App_Count": 312
+    },
+    {
+      "Category": "Lifestyle",
+      "Avg_Rating": 3.9003278688524587,
+      "Total_Reviews": 8248688,
+      "Total_Installs": 568003525,
+      "App_Count": 305
+    },
+    {
+      "Category": "Food & Drink",
+      "Avg_Rating": 3.922185430463576,
+      "Total_Reviews": 7491391,
+      "Total_Installs": 286241785,
+      "App_Count": 302
+    },
+    {
+      "Category": "Books & Reference",
+      "Avg_Rating": 3.8337837837837836,
+      "Total_Reviews": 10889562,
+      "Total_Installs": 286918986,
+      "App_Count": 296
+    },
+    {
+      "Category": "Dating",
+      "Avg_Rating": 3.8843537414965987,
+      "Total_Reviews": 2938767,
+      "Total_Installs": 100741907,
+      "App_Count": 294
+    },
+    {
+      "Category": "Entertainment",
+      "Avg_Rating": 3.859642857142857,
+      "Total_Reviews": 6720033,
+      "Total_Installs": 271485953,
+      "App_Count": 280
+    }
+  ],
+  "type_distribution": {
+    "Free": 9991,
+    "Paid": 781
+  },
+  "content_rating_distribution": {
+    "Everyone": 5806,
+    "Teen": 1679,
+    "Everyone 10+": 1644,
+    "Mature 17+": 1115,
+    "Unrated": 319,
+    "Adults only 18+": 209
+  },
+  "rating_distribution": {
+    "1-2": 313,
+    "2-3": 516,
+    "3-4": 4293,
+    "4-5": 5322,
+    "5": 328
+  },
+  "total_apps": 10772,
+  "avg_rating": 3.89,
+  "total_reviews": 671942003,
+  "total_installs": 24285220517,
+  "avg_size_mb": 31.43,
+  "paid_percentage": 7.25,
+  "top_apps_by_reviews": [
+    {
+      "App": "IQTools",
+      "Category": "Education",
+      "Rating": 4.4,
+      "Reviews": 39178393,
+      "Installs": "1,000,000,000+"
+    },
+    {
+      "App": "Zen Core Frame",
+      "Category": "Personalization",
+      "Rating": 3.5,
+      "Reviews": 28345019,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "Super Byte 4969",
+      "Category": "Business",
+      "Rating": 3.5,
+      "Reviews": 27222556,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "Magic Info Sync",
+      "Category": "Auto & Vehicles",
+      "Rating": 3.7,
+      "Reviews": 26737751,
+      "Installs": "1,000,000,000+"
+    },
+    {
+      "App": "Prime Edge Manager",
+      "Category": "Libraries & Demo",
+      "Rating": 4.4,
+      "Reviews": 26592674,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "Royal Pixel Tools",
+      "Category": "Art & Design",
+      "Rating": 3.8,
+      "Reviews": 24883574,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "Max Hero",
+      "Category": "Game",
+      "Rating": 3.9,
+      "Reviews": 24257737,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "DealTrack",
+      "Category": "Shopping",
+      "Rating": 4.0,
+      "Reviews": 21549974,
+      "Installs": "1,000,000,000+"
+    },
+    {
+      "App": "Elite Base World",
+      "Category": "Personalization",
+      "Rating": 4.0,
+      "Reviews": 20062505,
+      "Installs": "500,000,000+"
+    },
+    {
+      "App": "VibeHelper",
+      "Category": "Social",
+      "Rating": 4.2,
+      "Reviews": 19607238,
+      "Installs": "500,000,000+"
+    }
+  ],
+  "top_rated_apps": [
+    {
+      "App": "Power Data Plus",
+      "Category": "Art & Design",
+      "Rating": 5.0,
+      "Reviews": 16857,
+      "Installs": "500,000+"
+    },
+    {
+      "App": "ByteStudio",
+      "Category": "Libraries & Demo",
+      "Rating": 5.0,
+      "Reviews": 836,
+      "Installs": "50,000+"
+    },
+    {
+      "App": "Magic Core",
+      "Category": "Libraries & Demo",
+      "Rating": 5.0,
+      "Reviews": 2706,
+      "Installs": "50,000+"
+    },
+    {
+      "App": "My Grid",
+      "Category": "Libraries & Demo",
+      "Rating": 5.0,
+      "Reviews": 271,
+      "Installs": "10,000+"
+    },
+    {
+      "App": "CoreGuide",
+      "Category": "News & Magazines",
+      "Rating": 5.0,
+      "Reviews": 269,
+      "Installs": "10,000+"
+    },
+    {
+      "App": "Easy Pulse Tools",
+      "Category": "Auto & Vehicles",
+      "Rating": 5.0,
+      "Reviews": 858,
+      "Installs": "100,000+"
+    },
+    {
+      "App": "Elite Pixel",
+      "Category": "Parenting",
+      "Rating": 5.0,
+      "Reviews": 196,
+      "Installs": "10,000+"
+    },
+    {
+      "App": "CorePro",
+      "Category": "Events",
+      "Rating": 5.0,
+      "Reviews": 40995,
+      "Installs": "1,000,000+"
+    },
+    {
+      "App": "Top Core Plus",
+      "Category": "Comics",
+      "Rating": 5.0,
+      "Reviews": 63416,
+      "Installs": "5,000,000+"
+    },
+    {
+      "App": "Image Guide",
+      "Category": "Photography",
+      "Rating": 5.0,
+      "Reviews": 2059,
+      "Installs": "50,000+"
+    }
+  ],
+  "top_categories_by_rating": {
+    "Education": 3.97,
+    "Photography": 3.95,
+    "Auto & Vehicles": 3.93,
+    "Game": 3.93,
+    "Communication": 3.92,
+    "Food & Drink": 3.92,
+    "Comics": 3.92,
+    "Medical": 3.92,
+    "Parenting": 3.92,
+    "Music & Audio": 3.91,
+    "Business": 3.91,
+    "News & Magazines": 3.91,
+    "Video Players": 3.9,
+    "Lifestyle": 3.9,
+    "Social": 3.9
+  },
+  "size_vs_rating": {
+    "0-5MB": 3.89,
+    "5-10MB": 3.87,
+    "10-25MB": 3.9,
+    "25-50MB": 3.9,
+    "50-100MB": 3.89,
+    "100MB+": 4.03
+  },
+  "installs_vs_rating": {
+    "<100": 3.11,
+    "100-1K": 3.9,
+    "1K-10K": 4.01,
+    "10K-100K": 4.03,
+    "100K-1M": 4.0,
+    "1M-10M": 4.05,
+    "10M+": 4.05
+  }
+}
